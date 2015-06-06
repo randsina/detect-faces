@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'colorize'
-require_relative '../face'
+require_relative '../lib/face'
 
 class TestFace < Minitest::Test
   def setup

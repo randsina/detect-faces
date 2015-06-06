@@ -15,3 +15,12 @@ Or if you want loop this process run `loop.sh`. e. g.:
 bash loop.sh
 ```
 It assumed in current directory you have directories `pictures` and `out` where application will save your photos.
+##Test
+Run `minitest`:
+```sh
+ruby -Ilib:test test/test_face.rb pictures/image.jpg out/image.jpg
+```
+Rub `rspec`:
+```sh
+rspec spec/image_mail_spec.rb
+```

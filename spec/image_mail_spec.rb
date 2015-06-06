@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../image_mail'
+require_relative '../lib/image_mail'
 
 describe Pony do
 
