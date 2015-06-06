@@ -5,7 +5,7 @@ require 'colorize'
 
 class Face
   include OpenCV
-  DATA = '/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml'
+  DATA = '/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml' # Use this configuration to detect faces
 
   def initialize
     @detector = CvHaarClassifierCascade::load(DATA)
@@ -14,7 +14,7 @@ class Face
   def detect
     @detector.detect_objects(@image).each do |region|
       color = CvColor::Blue
-      @image.rectangle! region.top_left, region.bottom_right, color: color
+      @image.rectangle! region.top_left, region.bottom_right, color: color # Cut around of face
     end
     'Detect faces'.colorize(:green)
   end
@@ -31,7 +31,7 @@ class Face
 
   def save_image(image_destination_path)
     begin
-      @image.save_image(image_destination_path)
+      @image.save_image(image_destination_path) # Write the file
       'Save final photo'.colorize(:green)
     rescue
       puts 'Could not save image in the file'.colorize(:red)
