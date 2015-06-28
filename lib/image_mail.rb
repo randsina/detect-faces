@@ -10,23 +10,23 @@ class ImageMail
 
   def send
     Pony.mail({
-      to:          'roman.vakulchik@gmail.com',
-      subject:     'Raspberry Pi photo',
-      body:        'Hi. I send photo from Raspberry Pi.',
-      attachments: {
-        'image.jpg' => File.read(@image_source)
-      },
-      via:         :smtp,
-      via_options: {
-        address:              'smtp.gmail.com',
-        port:                 '587',
-        enable_starttls_auto: true,
-        user_name:            'rvakulchik@gmail.com',
-        password:             ENV['PASSWORD'], # You should set your password in Unix environment
-        authentication:       :plain, # :plain, :login, :cram_md5, no auth by default
-        domain:               'localhost.localdomain' # the HELO domain provided by the client to the server
-      }
-    })
+                to:          'roman.vakulchik@gmail.com',
+                subject:     'Raspberry Pi photo',
+                body:        'Hi. I send photo from Raspberry Pi.',
+                attachments: {
+                  'image.jpg' => File.read(@image_source)
+                },
+                via:         :smtp,
+                via_options: {
+                  address:              'smtp.gmail.com',
+                  port:                 '587',
+                  enable_starttls_auto: true,
+                  user_name:            'rvakulchik@gmail.com',
+                  password:             ENV['PASSWORD'], # You should set your password in Unix environment
+                  authentication:       :plain, # :plain, :login, :cram_md5, no auth by default
+                  domain:               'localhost.localdomain' # the HELO domain provided by the client to the server
+                }
+              })
     'Send photo'.colorize(:green)
   end
 end
